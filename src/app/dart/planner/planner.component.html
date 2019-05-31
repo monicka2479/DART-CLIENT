@@ -1,3 +1,44 @@
-<p>
-  planner works!
-</p>
+<h1>Batch </h1>
+<form #dartForm='ngForm' (ngSubmit)='onSubmit(inputName.value, inputDate.value)'>
+  <div class="row" >
+  <div class="form-group col col-12">
+  <div class="form-group col col-6">
+    <label for="username">Name: </label>
+    <select  #inputName class="form-control" id="username">
+        <option>SELECT</option>
+        <option>Monicka</option>
+        <option>Hema</option>
+        <option>Ramesh</option>
+        <option>Madhavan</option>
+        <option>Aadhavan</option>
+        <option>Madhan</option>
+        <option>Prasanth</option>
+    </select>
+  </div>
+  <div class="form-group col col-6">
+    <label for="date">Date:</label>
+    <input type="text" ngbDatepicker  #inputDate class="form-control" id="date">
+  </div>
+  </div>
+</div>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <!-- <th scope="col">S.No</th> -->
+        <th scope="col">From time</th>
+        <th scope="col">To time</th>
+        <th scope="col">Planned task</th>
+        <th scope="col">Remarks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dart of darts" scope="row">
+        <td><input type='text' class="form-control" #fromTime='ngModel' name='fromTime' [(ngModel)]=dart.fromTime /></td>
+        <td><input type='text' class="form-control" #toTime='ngModel' name='toTime' [(ngModel)]=dart.toTime /></td>
+        <td><input type='text' class="form-control"  #plannedTask='ngModel' name='plannedTask' [(ngModel)]=dart.plannedTask /></td>
+        <td><input type='text' class="form-control" #remarks='ngModel' name='remarks' [(ngModel)]=dart.remarks /></td>
+      </tr>
+    </tbody>
+    <button class="btn btn-primary" type='submit'>Submit</button>
+  </table>
+</form>
