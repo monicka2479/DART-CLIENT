@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PlannerComponent } from './planner/planner.component';
 import { DartComponent } from './dart/dart.component';
+import { ReportComponent } from './report/report.component';
 
 const  routes: Routes  = [
   {
@@ -11,7 +12,11 @@ const  routes: Routes  = [
       {
       path:  'planner',
       component:  PlannerComponent
-      }
+      },
+      {
+        path:  'report',
+        component:  ReportComponent
+        }
     ]
     }
 ];

@@ -10,17 +10,41 @@ import { Dart } from '../dart';
 export class PlannerComponent implements OnInit {
 
   constructor(private dartService: DartService) { }
+  curDate = new Date();
   name: string;
-  date: string;
+  date: Date = this.curDate;
   darts: Dart[] = [];
-  list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
 
 
   ngOnInit() {
-    for (let i of this.list) {
-      let dart1 = new Dart('', '', '08.00 AM', '09.00 AM', 'Task 1', 'true1')
+      const dart1 = new Dart('', '', '08.00 AM', '09.00 AM', '', '');
+      const dart2 = new Dart('', '', '09.00 AM', '10.00 AM', '', '');
+      const dart3 = new Dart('', '', '10.00 AM', '11.00 AM', '', '');
+      const dart4 = new Dart('', '', '11.00 AM', '12.00 AM', '', '');
+      const dart5 = new Dart('', '', '12.00 AM', '01.00 PM', '', '');
+      const dart6 = new Dart('', '', '01.00 PM', '02.00 PM', '', '');
+      const dart7 = new Dart('', '', '02.00 PM', '03.00 PM', '', '');
+      const dart8 = new Dart('', '', '03.00 PM', '04.00 PM', '', '');
+      const dart9 = new Dart('', '', '04.00 PM', '05.00 PM', '', '');
+      const dart10 = new Dart('', '', '05.00 PM', '06.00 PM', '', '');
+      const dart11 = new Dart('', '', '06.00 PM', '07.00 PM', '', '');
+
       this.darts.push(dart1);
-    }
+      this.darts.push(dart2);
+      this.darts.push(dart3);
+      this.darts.push(dart4);
+      this.darts.push(dart5);
+      this.darts.push(dart6);
+      this.darts.push(dart7);
+      this.darts.push(dart8);
+      this.darts.push(dart9);
+      this.darts.push(dart10);
+      this.darts.push(dart11);
+  }
+
+  trackByIndex(index: number, obj: any ): any{
+    return index;
   }
 
   onSubmit(name, date) {

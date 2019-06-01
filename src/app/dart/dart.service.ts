@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {Observable,of, from } from 'rxjs';
 import { Dart } from './dart';
 
 @Injectable({
@@ -7,10 +8,17 @@ import { Dart } from './dart';
 })
 export class DartService {
 
-  url = "http://localhost:3000/enroll";
+  insertUrl = "http://localhost:3000/enroll";
+  selectUrl = "http://localhost:3000/select";
   constructor(private http: HttpClient) { }
+
   enroll(darts: Dart[]) {
     console.log(darts.length);
-    return this.http.post<any>(this.url, darts);
+    console.log(this.insertUrl);
+    return this.http.post<any>(this.insertUrl, darts);
+  }
+  getDarts():Observable<any>{
+
+    return this.http.get(this.selectUrl);
   }
 }

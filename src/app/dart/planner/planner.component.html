@@ -17,7 +17,7 @@
   </div>
   <div class="form-group col col-6">
     <label for="date">Date:</label>
-    <input type="text" ngbDatepicker  #inputDate class="form-control" id="date">
+    <input type="text" #inputDate  class="form-control" id="date">
   </div>
   </div>
 </div>
@@ -32,13 +32,15 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let dart of darts" scope="row">
-        <td><input type='text' class="form-control" #fromTime='ngModel' name='fromTime' [(ngModel)]=dart.fromTime /></td>
-        <td><input type='text' class="form-control" #toTime='ngModel' name='toTime' [(ngModel)]=dart.toTime /></td>
-        <td><input type='text' class="form-control"  #plannedTask='ngModel' name='plannedTask' [(ngModel)]=dart.plannedTask /></td>
-        <td><input type='text' class="form-control" #remarks='ngModel' name='remarks' [(ngModel)]=dart.remarks /></td>
+      <tr *ngFor="let dart of darts;let index = index; trackBy:trackByIndex;" scope="row">
+        <td><input type='text' class="form-control" name='from-{{index}}' [(ngModel)]="dart.fromTime" /></td>
+        <td><input type='text' class="form-control" #toTime='ngModel' name='toTime-{{index}}' [(ngModel)]=dart.toTime /></td>
+        <td><input type='text' class="form-control"  #plannedTask='ngModel' name='plannedTask-{{index}}' [(ngModel)]=dart.plannedTask /></td>
+        <td><input type='text' class="form-control" #remarks='ngModel' name='remarks-{{index}}' [(ngModel)]=dart.remarks /></td>
       </tr>
     </tbody>
-    <button class="btn btn-primary" type='submit'>Submit</button>
   </table>
+  <div class="form-group">
+    <button class="btn btn-primary" type='submit'>Add Day Plan</button>
+  </div>
 </form>
