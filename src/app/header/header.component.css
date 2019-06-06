@@ -8,20 +8,17 @@ nav {
   display: flex;
   align-items: center;
   box-shadow: 0 0 25px 0 black;
-  background-color: #2a1b3d;
+  background-color:#007bff;
   z-index: 10000;
 }
 
 .navbar-light .navbar-brand {
-  color: #fff;
+  color: #1896bc;
 }
 .navbar-light .navbar-nav .nav-link {
-  color:#fff;
+  color: #1997bd;
 }
 
-.navbar-light .navbar-nav .nav-link:hover {
-  background-color: #5744e8;
-}
 li.nav-item.menu__group {
   margin: 0em 1em 0em 1em;
 }
@@ -30,21 +27,22 @@ div#navbarText {
 }
 .navbar-brand {
   font-family: 'Montserrat', sans-serif;
-  color: #fff;
+  color:#fff;
   font-weight: 900;
-  font-size: 2.5em;
+    font-size: 3em;
+    letter-spacing: 2px;
 }
 .yellow {
-  color: #f1d700;
+  color: #fff900;
 }
-.blue {
-  color:#0080ff;
+.green {
+  color:#25ff00;
 }
 .orange {
-  color: #ea3511;
+  color: #ff0000;
 }
 .pink {
-  color:#d700d7;
+  color:#ff00ff;
 }
 
 
@@ -52,7 +50,7 @@ div#navbarText {
 /* menu demo styles */
 
 .menu{
-  background-color: #6c5ce7;
+  background-color:#fff;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24);
 }
 

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PlannerComponent } from './planner/planner.component';
 import { DartComponent } from './dart/dart.component';
 import { ReportComponent } from './report/report.component';
+import { ImportComponent } from './import/import.component';
 
 const  routes: Routes  = [
   {
@@ -16,6 +17,10 @@ const  routes: Routes  = [
       {
         path:  'report',
         component:  ReportComponent
+      },
+      {
+        path:  'import',
+        component:  ImportComponent
         }
     ]
     }

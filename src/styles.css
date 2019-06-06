@@ -3,3 +3,80 @@
   float: left;
 }
 
+.page-header.page-header-modern.page-header-background {
+  padding: 40px 0;
+  background-size: cover;
+}
+.overlay {
+  position: relative;
+}
+.page-header {
+  background-color: #212529;
+  margin: 0 0 35px 0;
+  padding: 30px 0;
+  position: relative;
+  text-align: left;
+}
+.page-header .breadcrumb > li {
+  display: inline-block;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  text-shadow: none;
+}
+.page-header .breadcrumb > li + li:before {
+  color: inherit;
+  opacity: 0.5;
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: "\f105";
+  padding: 0 7px 0 5px;
+}
+.page-header .breadcrumb.breadcrumb-light {
+  color: #FFF;
+}
+.page-header .breadcrumb {
+  background: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+  .page-header.page-header-modern h1 {
+    font-size: 40px;
+    font-weight: 900;
+}
+.page-header h1 {
+  color: #fff;
+  display: inline-block;
+  font-size: 30px;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  position: relative;
+  top: 1px;
+}
+
+.table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #007bff;
+}
+.table-bordered td, .table-bordered th {
+  border: 1px solid #1896bc;
+}
+.table td, .table th {
+  padding: .75rem;
+  vertical-align: top;
+  border-top: 1px solid #1896bc;
+}
+th {
+  text-transform: uppercase;
+  color: #1896bc;
+}
+section.page-header {
+  margin-top: 3.5em;
+}
+section h4 {
+  font-size: 1.5rem;
+  color: #c0e4ef;
+}

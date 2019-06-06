@@ -17,10 +17,7 @@ export class ReportComponent implements OnInit {
     this.dartService.getDarts()
     .subscribe((data: Dart[]) => {
       this.darts = data;
-
       console.log(this.darts);
-
-
   });
 
   }

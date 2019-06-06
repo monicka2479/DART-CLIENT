@@ -21,4 +21,8 @@ export class DartService {
 
     return this.http.get(this.selectUrl);
   }
+
+  getDayDart(dart){
+    return this.http.get("http://localhost:3000/selectSingleReport", dart);
+  }
 }

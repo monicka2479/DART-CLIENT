@@ -1,11 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { DartModule } from './dart/dart.module';
-
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import {HttpClient, HttpClientModule} from '@angular/common/http'
 import { CommonModule } from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HeaderComponent } from './header/header.component';
@@ -22,7 +23,8 @@ import { HeaderComponent } from './header/header.component';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    DartModule
+    DartModule,
+    AngularFontAwesomeModule
 
   ],
   providers: [HttpClient],
