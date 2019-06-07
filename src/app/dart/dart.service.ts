@@ -8,11 +8,11 @@ import { Dart } from './dart';
 })
 export class DartService {
 
-  insertUrl = "http://localhost:3000/enroll";
-  selectUrl = "http://localhost:3000/select";
+  insertUrl = "http://localhost:3000/dart_create";
+  selectUrl = "http://localhost:3000/dart_select";
   constructor(private http: HttpClient) { }
 
-  enroll(darts: Dart[]) {
+  create(darts: Dart[]) {
     console.log(darts.length);
     console.log(this.insertUrl);
     return this.http.post<any>(this.insertUrl, darts);

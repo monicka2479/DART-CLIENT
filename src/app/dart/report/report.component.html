@@ -1,28 +1,44 @@
-<h1 class="heading">DART REPORT </h1>
+<section
+  class="page-header page-header-modern page-header-background page-header-background-sm overlay overlay-color-primary overlay-show overlay-op-8 mb-5"
+  style="background-image: url(assets/img/page-header/page-header-elements.jpg);">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 align-self-center p-static order-2">
+        <h1>DART - REPORT</h1>
+        <h4>Here, we can see the complete day planner and report</h4>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container">
 
-<table class="table table-borderless table-sm">
-     <div *ngFor="let dart of darts; let i = index" [attr.data-index]="i">
-       <div *ngIf="i != 0 else elseBlock">
-         <div class="report-header" *ngIf ="darts[i].userName != darts[i-1].userName else elseBlock" >
+  <div class="row">
+    <table class="table table-borderless table-sm">
+      <div *ngFor="let dart of darts; let i = index" [attr.data-index]="i">
+        <div *ngIf="i != 0 else elseBlock">
+          <div class="report-header" *ngIf="darts[i].userName != darts[i-1].userName else elseBlock">
 
-          <b>Name:</b> {{dart.userName}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Date:</b> {{dart.taskDate}}
-         </div>
-
-         <ng-template #elseBlock>
-                <tbody>
-                  <tr scope="row">
-                    <td width="300px"> <b>Time:</b> {{dart.fromTime}} -  {{dart.toTime}} </td>
-                    <td width="200px"><b>Task:</b> {{dart.plannedTask}}</td>
-                    <td width="200px"><b>Remarks:</b> {{dart.remarks}}</td>
-                 </tr>
-                </tbody>
-
-              </ng-template>
-       </div>
-       <ng-template #elseBlock>
-         <div class="report-header">
-           <b>Name:</b> {{dart.userName}} <b>Date:</b> {{dart.taskDate}}
+            <b>Name:</b> {{dart.userName}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Date:</b>
+            {{dart.taskDate}}
           </div>
-       </ng-template>
+
+          <ng-template #elseBlock>
+            <tbody>
+              <tr scope="row">
+                <td width="300px"> <b>Time:</b> {{dart.fromTime}} - {{dart.toTime}} </td>
+                <td width="200px"><b>Task:</b> {{dart.plannedTask}}</td>
+                <td width="200px"><b>Remarks:</b> {{dart.remarks}}</td>
+              </tr>
+            </tbody>
+
+          </ng-template>
+        </div>
+        <ng-template #elseBlock>
+          <div class="report-header">
+            <b>Name:</b> {{dart.userName}} <b>Date:</b> {{dart.taskDate}}
+          </div>
+        </ng-template>
       </div>
     </table>
+  </div>
+</div>

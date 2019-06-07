@@ -5,16 +5,15 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PlannerComponent } from './planner/planner.component';
 import { ReportComponent } from './report/report.component';
-import { ImportComponent } from './import/import.component';
 import { UpdateComponent } from './update/update.component';
 import { DartComponent } from './dart/dart.component';
 import { DartRoutingModule } from './dart.routing.module';
 
 @NgModule({
   declarations: [PlannerComponent, DartComponent, ReportComponent,
-    ImportComponent, UpdateComponent],
+    UpdateComponent],
   imports: [
-    BrowserModule, CommonModule, HttpClientModule, DartRoutingModule, FormsModule
+    BrowserModule, CommonModule, HttpClientModule, FormsModule, DartRoutingModule
   ],
   providers: [
     HttpClient

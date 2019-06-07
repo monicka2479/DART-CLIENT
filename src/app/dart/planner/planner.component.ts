@@ -14,7 +14,7 @@ export class PlannerComponent implements OnInit {
   name: string;
   date: Date = this.curDate;
   darts: Dart[] = [];
-  
+
   ngOnInit() {
       const dart1 = new Dart('', '', '08:00 AM', '09:00 AM', '', '');
       const dart2 = new Dart('', '', '09:00 AM', '10:00 AM', '', '');
@@ -56,7 +56,7 @@ export class PlannerComponent implements OnInit {
     }
 
     console.log('After: ' + this.darts);
-    this.dartService.enroll(this.darts)
+    this.dartService.create(this.darts)
       .subscribe(
         data => console.log('success', data),
         error => console.error('success', error)

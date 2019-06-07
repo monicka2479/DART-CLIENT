@@ -25,43 +25,35 @@ export class UpdateComponent implements OnInit {
 
   ]
   ngOnInit() {
-
-
   }
   onClick(name,date){
   this.dartService.getDayDart(this.dart)
     .subscribe(
       data=>
-      { this.dart.dartName= name;
-        this.dart.taskDate= date;
+      { this.dart.dartName = name;
+        this.dart.taskDate = date;
         console.log(this.dart);
         this.darts;
       }
     );
     }
-  onSubmit(actualTask) {
-
-    this.dartService.updatedarts()
-    .subscribe(
-      data=>
-      {
-
-        console.log(this.darts);
-        this.darts;
-      }
-    );
-    console.log("Before: "+ JSON.stringify(this.darts));
-          for (let dart of this.darts) {
-
-              dart.actualTask=actualTask;
-
-      }
-            console.log("After: "+ this.darts);
-      this.dartService.update(this.darts)
-          .subscribe(
-            data => console.log('success', data),
-              error => console.error('success', error)
-            )
-        }
+  // onSubmit(actualTask) {
+  //   this.dartService.updatedarts()
+  //   .subscribe(data=>{
+  //       console.log(this.darts);
+  //       this.darts;
+  //     }
+  //   );
+  //   console.log("Before: "+ JSON.stringify(this.darts));
+  //         for (let dart of this.darts) {
+  //         dart.actualTask=actualTask;
+  //     }
+  //           console.log("After: "+ this.darts);
+  //     this.dartService.update(this.darts)
+  //         .subscribe(
+  //           data => console.log('success', data),
+  //             error => console.error('success', error)
+  //           )
+  //       }
 
 }

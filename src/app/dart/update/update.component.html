@@ -2,7 +2,6 @@
   table, td, th {
     border: 1px solid black;
   }
-
   table{
     border-collapse: collapse;
     width: 90%;
@@ -10,12 +9,10 @@
   th{
     height: 50px;
   }
-  
 </style>
 
 <h2>Report</h2>
 <form #updateForm='ngForm' >
-
     <label>Name :</label>
     <select #inputName>
       <option>--SELECT--</option>
@@ -53,10 +50,10 @@
     <td>{{user.plannedTask}}</td>
     <td><input type='text' #actualTask /></td>
     <td>{{user.remarks}}</td>
-       
+
   </tr>
 </table>
 
-<button (click)="onSubmit(actualTask.value)">Submit</button>
+<!-- <button (click)="onSubmit(actualTask.value)">Submit</button> -->
 
 </form>
