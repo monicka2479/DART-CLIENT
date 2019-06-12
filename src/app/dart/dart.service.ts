@@ -10,6 +10,7 @@ export class DartService {
 
   insertUrl = "http://localhost:3000/dart_create";
   selectUrl = "http://localhost:3000/dart_select";
+  dayDartUrl = "http://localhost:3000/dart_selectSingle";
   constructor(private http: HttpClient) { }
 
   create(darts: Dart[]) {
@@ -22,7 +23,11 @@ export class DartService {
     return this.http.get(this.selectUrl);
   }
 
-  getDayDart(dart){
-    return this.http.get("http://localhost:3000/selectSingleReport", dart);
+  getDayDart(dart):Observable<any>{
+    return this.http.get(this.dayDartUrl, dart);
   }
+  // getDayDart(user):Promise<User[]> {
+  //   return this.http.get("http://localhost:3000/dart_selectSingle", user )
+  //                   .pipe(map(this.extractData)).toPromise().catch(this.handleError);
+  // }
 }

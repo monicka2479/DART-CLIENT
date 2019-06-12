@@ -73,6 +73,10 @@ th {
   text-transform: uppercase;
   color: #1896bc;
 }
+.alert.alert-sucess {
+  color: white;
+  background-color: green;
+}
 section.page-header {
   margin-top: 5em;
 }

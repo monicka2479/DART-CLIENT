@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PlannerComponent } from './planner/planner.component';
 import { DartComponent } from './dart/dart.component';
 import { ReportComponent } from './report/report.component';
+import { DiaryComponent } from './diary/diary.component';
 
 const  routes: Routes  = [
   {
@@ -13,6 +14,10 @@ const  routes: Routes  = [
       path:  'planner',
       component:  PlannerComponent
       },
+      {
+        path:  'diary',
+        component:  DiaryComponent
+        },
       {
         path:  'report',
         component:  ReportComponent
