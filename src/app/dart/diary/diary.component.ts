@@ -6,15 +6,15 @@ import { Dart } from '../dart';
   templateUrl: './diary.component.html',
   styleUrls: ['./diary.component.css']
 })
-export class DiaryComponent{
+export class DiaryComponent {
   constructor(private dartService: DartService) { }
   actualTask: string;
   dart: any;
   darts: Dart[];
-
+  message: string;
   onClick(name, date) {
-    this.dart = new Dart(name, date, '', '', '', '');
-    console.log('Updated user obj' + this.dart);
+    this.dart = new Dart(name, date, '', '', '', '', '');
+    console.log('Updated user obj' + JSON.stringify(this.dart));
     this.dartService.getDayDart(this.dart)
       .subscribe((data: Dart[]) => {
         this.darts = data;
@@ -22,23 +22,20 @@ export class DiaryComponent{
       });
 
   }
-  // onSubmit(actualTask) {
-  //   this.dartService.updatedarts()
-  //   .subscribe(data=>{
-  //       console.log(this.darts);
-  //       this.darts;
-  //     }
-  //   );
-  //   console.log('Before: '+ JSON.stringify(this.darts));
-  //         for (let dart of this.darts) {
-  //         dart.actualTask=actualTask;
-  //     }
-  //           console.log('After: '+ this.darts);
-  //     this.dartService.update(this.darts)
-  //         .subscribe(
-  //           data => console.log('success', data),
-  //             error => console.error('success', error)
-  //           )
-  //       }
+  trackByIndex(index: number, obj: any): any {
+    return index;
+  }
 
+  onSubmit() {
+
+    // for (let dart of this.darts) {
+    //   dart.actualTask = actualTask;
+    // }
+    console.log('After: ' + JSON.stringify(this.darts));
+    this.dartService.updateDarts(this.darts)
+      .subscribe(
+        data => this.message = data,
+        error => console.error('success', error)
+      )
+  }
 }

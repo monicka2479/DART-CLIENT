@@ -14,10 +14,10 @@
 <div class="container">
 
   <div class="row">
-    {{message}}
     <form #dartForm='ngForm' (ngSubmit)='onSubmit(inputName.value, inputDate.value)'>
       <div class="row">
         <div class="form-group col col-12">
+            <div *ngIf="message" class="alert alert-sucess">{{message}}</div>
           <div class="form-group col col-6">
             <label for="username">Name: </label>
             <select #inputName class="form-control" id="username">

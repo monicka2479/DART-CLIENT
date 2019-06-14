@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { DartModule } from './dart/dart.module';
 import { QueryModule } from './query/query.module';
+import { VersionModule } from './version/version.module';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import {HttpClient, HttpClientModule} from '@angular/common/http'
 import { CommonModule } from '@angular/common';
@@ -26,6 +27,7 @@ import { HeaderComponent } from './header/header.component';
     HttpClientModule,
     DartModule,
     QueryModule,
+    VersionModule,
     AngularFontAwesomeModule,
     ReactiveFormsModule
 

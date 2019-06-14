@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Observable,of, from } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable, of, from } from 'rxjs';
 import { Dart } from './dart';
 
 @Injectable({
@@ -8,9 +8,10 @@ import { Dart } from './dart';
 })
 export class DartService {
 
-  insertUrl = "http://localhost:3000/dart_create";
-  selectUrl = "http://localhost:3000/dart_select";
-  dayDartUrl = "http://localhost:3000/dart_selectSingle";
+  insertUrl = 'http://localhost:3000/dart_create';
+  selectUrl = 'http://localhost:3000/dart_select';
+  dayDartUrl = 'http://localhost:3000/dart_selectSingle';
+  updateDartUrl = 'http://localhost:3000/dart_update';
   constructor(private http: HttpClient) { }
 
   create(darts: Dart[]) {
@@ -18,16 +19,18 @@ export class DartService {
     console.log(this.insertUrl);
     return this.http.post<any>(this.insertUrl, darts);
   }
-  getDarts():Observable<any>{
+  getDarts(): Observable<any> {
 
     return this.http.get(this.selectUrl);
   }
 
-  getDayDart(dart):Observable<any>{
-    return this.http.get(this.dayDartUrl, dart);
+  getDayDart(dart: Dart): Observable<any> {
+    var url = this.dayDartUrl + '/' + dart.userName + '&' + dart.taskDate;
+
+    console.log('URL' + url);
+    return this.http.get<any>(url);
   }
-  // getDayDart(user):Promise<User[]> {
-  //   return this.http.get("http://localhost:3000/dart_selectSingle", user )
-  //                   .pipe(map(this.extractData)).toPromise().catch(this.handleError);
-  // }
+  updateDarts(darts: Dart[]) {
+    return this.http.post<any>(this.updateDartUrl, darts);
+  }
 }

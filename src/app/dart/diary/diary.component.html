@@ -11,49 +11,65 @@
   </div>
 </section>
 
-<h2>Report</h2>
-<form #updateForm='ngForm' >
-    <label>Name :</label>
-    <select #inputName>
-      <option>--SELECT--</option>
-      <option>Monicka</option>
-      <option>Hema</option>
-      <option>Ramesh</option>
-      <option>Madhavan</option>
-      <option>Aadhavan</option>
-      <option>Madhan</option>
-      <option>Prasanth</option>
-    </select>
+<div class="container">
 
+  <div class="row">
+    <!-- {{message}} -->
+    <form #dartForm='ngForm' (ngSubmit)='onSubmit()'>
+      <div class="row">
+        <div class="form-group col col-12">
+            <div *ngIf="message" class="alert alert-sucess">{{message}}</div>
+          <div class="form-group col col-4">
+            <label for="username">Name: </label>
+            <select #inputName class="form-control" id="username">
+              <option>SELECT</option>
+              <option>Monicka</option>
+              <option>Hema</option>
+              <option>Ramesh</option>
+              <option>Madhavan</option>
+              <option>Aadhavan</option>
+              <option>Madhan</option>
+              <option>Prasanth</option>
+            </select>
+          </div>
+          <div class="form-group col col-4">
+            <label for="date">Date:</label>
+            <input type="text" #inputDate class="form-control" id="date">
+          </div>
+          <div class="form-group col col-3">
+            <button class="btn btn-primary" (click)="onClick(inputName.value, inputDate.value)">Get Day
+              Plan</button>
+          </div>
+        </div>
+      </div>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <!-- <th scope="col">S.No</th> -->
+            <th scope="col">Name</th>
+            <th scope="col">From time</th>
+            <th scope="col">To time</th>
+            <th scope="col">Planned task</th>
+            <th scope="col">Actual task</th>
+            <th scope="col">Remarks</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dart of darts;let index = index; trackBy:trackByIndex;" scope="row">
 
-
-    <label>Date</label>
-    <input type="text" #inputDate>
-
-    <button (click)="onClick(inputName.value,inputDate.value)">GET</button>
-<table>
-  <tr>
-    <th>Date</th>
-    <th>Name</th>
-    <th>From time</th>
-    <th>To time</th>
-    <th>Planned task</th>
-    <th>Actual task</th>
-    <th>Remarks</th>
-  </tr>
-
-  <tr *ngFor="let dart of darts">
-    <td>{{dart.taskDate}}</td>
-    <td>{{dart.userName}}</td>
-    <td>{{dart.fromTime}}</td>
-    <td>{{dart.toTime}}</td>
-    <td>{{dart.plannedTask}}</td>
-    <td><input type='text' #actualTask /></td>
-    <td>{{dart.remarks}}</td>
-
-  </tr>
-</table>
-
-<!-- <button (click)="onSubmit(actualTask.value)">Submit</button> -->
-
-</form>
+            <td>{{dart.userName}}</td>
+            <td>{{dart.fromTime}}</td>
+            <td>{{dart.toTime}}</td>
+            <td>{{dart.plannedTask}}</td>
+            <td><input type='text' class="form-control" #actualTask='ngModel' name='remarks-{{index}}'
+                [(ngModel)]=dart.actualTask /></td>
+            <td>{{dart.remarks}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="form-group">
+        <button class="btn btn-primary" type='submit'>Update Day Diary</button>
+      </div>
+    </form>
+  </div>
+</div>
