@@ -14,10 +14,11 @@
 <div class="container">
 
   <div class="row">
-    <!-- {{message}} -->
+
     <form #dartForm='ngForm' (ngSubmit)='onSubmit()'>
       <div class="row">
         <div class="form-group col col-12">
+            <H1>SEARCH</H1>
             <div *ngIf="message" class="alert alert-sucess">{{message}}</div>
           <div class="form-group col col-4">
             <label for="username">Name: </label>
@@ -42,6 +43,7 @@
           </div>
         </div>
       </div>
+      <H1>RESULT</H1>
       <table class="table table-bordered table-striped">
         <thead>
           <tr>

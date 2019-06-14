@@ -27,10 +27,6 @@ export class DiaryComponent {
   }
 
   onSubmit() {
-
-    // for (let dart of this.darts) {
-    //   dart.actualTask = actualTask;
-    // }
     console.log('After: ' + JSON.stringify(this.darts));
     this.dartService.updateDarts(this.darts)
       .subscribe(
