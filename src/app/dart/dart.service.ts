@@ -19,17 +19,22 @@ export class DartService {
     console.log(this.insertUrl);
     return this.http.post<any>(this.insertUrl, darts);
   }
-  getDarts(): Observable<any> {
 
-    return this.http.get(this.selectUrl);
+  getDarts(name, fromDate, toDate): Observable<any> {
+    //return this.http.get(this.selectUrl);
+    console.log('Name' + name);
+    console.log('From date' + fromDate);
+    console.log('To date' + toDate);
+    //console.log('Updated user obj' + JSON.stringify(dart));
+    return this.http.get<any>(this.selectUrl + "/" + name + "&" + fromDate + "&" + toDate);
   }
 
   getDayDart(dart: Dart): Observable<any> {
     var url = this.dayDartUrl + '/' + dart.userName + '&' + dart.taskDate;
-
     console.log('URL' + url);
     return this.http.get<any>(url);
   }
+
   updateDarts(darts: Dart[]) {
     return this.http.post<any>(this.updateDartUrl, darts);
   }

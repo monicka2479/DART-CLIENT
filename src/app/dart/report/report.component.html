@@ -10,35 +10,64 @@
     </div>
   </div>
 </section>
+
 <div class="container">
-
-  <div class="row">
-    <table class="table table-borderless table-sm">
-      <div *ngFor="let dart of darts; let i = index" [attr.data-index]="i">
-        <div *ngIf="i != 0 else elseBlock">
-          <div class="report-header" *ngIf="darts[i].userName != darts[i-1].userName else elseBlock">
-
-            <b>Name:</b> {{dart.userName}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Date:</b>
-            {{dart.taskDate}}
+    <form #dartForm='ngForm' (ngSubmit)='onSubmit(inputName.value, inputFromDate.value, inputToDate.value)'>
+      <div class="row">
+        <div class="form-group col col-12">
+          <h2>Search</h2>
+          <div class="form-group col col-4">
+            <label for="username">Name: </label>
+            <select #inputName class="form-control" id="username">
+              <option>SELECT</option>
+              <option>Monicka</option>
+              <option>Hema</option>
+              <option>Ramesh</option>
+              <option>Madhavan</option>
+              <option>Aadhavan</option>
+              <option>Madhan</option>
+              <option>Prasanth</option>
+            </select>
           </div>
+          <div class="form-group col col-3">
+            <label for="date">From Date:</label>
+            <input type="date" #inputFromDate class="form-control" id="date">
+          </div>
+          <div class="form-group col col-3">
+            <label for="date">To Date:</label>
+            <input type="date" #inputToDate class="form-control" id="date">
+          </div>
+          <div class="form-group col col-2">
+            <button class="btn btn-info" type="submit">GET</button>
+          </div>
+        </div>
+      </div>
+    </form>
 
+    <div class="row">
+      <table class="table table-borderless table-sm">
+        <div *ngFor="let dart of darts; let i = index" [attr.data-index]="i">
+          <div *ngIf="i != 0 else elseBlock">
+            <div class="report-header" *ngIf="darts[i].userName != darts[i-1].userName else elseBlock">
+              <b>Name:</b> {{dart.userName}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Date:</b>
+              {{dart.taskDate | date:'d/M/y'}}
+            </div>
+            <ng-template #elseBlock>
+              <tbody>
+                <tr scope="row">
+                  <td width="300px"> <b>Time:</b> {{dart.fromTime}} - {{dart.toTime}} </td>
+                  <td width="200px"><b>Task:</b> {{dart.plannedTask}}</td>
+                  <td width="200px"><b>Remarks:</b> {{dart.remarks}}</td>
+                </tr>
+              </tbody>
+            </ng-template>
+          </div>
           <ng-template #elseBlock>
-            <tbody>
-              <tr scope="row">
-                <td width="300px"> <b>Time:</b> {{dart.fromTime}} - {{dart.toTime}} </td>
-                <td width="200px"><b>Task:</b> {{dart.plannedTask}}</td>
-                <td width="200px"><b>Remarks:</b> {{dart.remarks}}</td>
-              </tr>
-            </tbody>
-
+            <div class="report-header">
+              <b>Name:</b> {{dart.userName}} <b>Date:</b> {{dart.taskDate}}
+            </div>
           </ng-template>
         </div>
-        <ng-template #elseBlock>
-          <div class="report-header">
-            <b>Name:</b> {{dart.userName}} <b>Date:</b> {{dart.taskDate}}
-          </div>
-        </ng-template>
-      </div>
-    </table>
+      </table>
+    </div>
   </div>
-</div>

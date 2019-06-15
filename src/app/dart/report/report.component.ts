@@ -6,17 +6,17 @@ import { Dart } from '../dart';
   templateUrl: './report.component.html',
   styleUrls: ['./report.component.css']
 })
-export class ReportComponent implements OnInit {
+export class ReportComponent{
   constructor(private dartService: DartService) { }
-
   darts: Dart[];
-  ngOnInit() {
-
-    this.dartService.getDarts()
+  onSubmit(name, fromDate: Date, toDate: Date){
+    console.log('Name' + name);
+    console.log('From date' + fromDate);
+    console.log('To date' + toDate);
+    this.dartService.getDarts(name, fromDate, toDate)
       .subscribe((data: Dart[]) => {
         this.darts = data;
         console.log(this.darts);
       });
-
   }
 }
