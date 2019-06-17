@@ -11,9 +11,10 @@ export class DiaryComponent {
   actualTask: string;
   dart: any;
   darts: Dart[];
+  curDate = new Date();
   message: string;
-  onClick(name, date) {
-    this.dart = new Dart(name, date, '', '', '', '', '');
+  onClick(name) {
+    this.dart = new Dart(name, this.curDate, '', '', '', '', '');
     console.log('Updated user obj' + JSON.stringify(this.dart));
     this.dartService.getDayDart(this.dart)
       .subscribe((data: Dart[]) => {

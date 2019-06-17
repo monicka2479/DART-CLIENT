@@ -30,6 +30,7 @@ export class DartService {
   }
 
   getDayDart(dart: Dart): Observable<any> {
+    console.log('Dart obj' + JSON.stringify(dart));
     var url = this.dayDartUrl + '/' + dart.userName + '&' + dart.taskDate;
     console.log('URL' + url);
     return this.http.get<any>(url);

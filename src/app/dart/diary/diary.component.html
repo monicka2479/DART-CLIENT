@@ -35,10 +35,10 @@
           </div>
           <div class="form-group col col-4">
             <label for="date">Date:</label>
-            <input type="text" #inputDate class="form-control" id="date">
+            <input type="text" class="form-control" value="{{curDate | date:'dd/MM/yyyy'}}" readonly>
           </div>
           <div class="form-group col col-3">
-            <button class="btn btn-primary" (click)="onClick(inputName.value, inputDate.value)">Get Day
+            <button class="btn btn-primary" (click)="onClick(inputName.value)">Get Day
               Plan</button>
           </div>
         </div>

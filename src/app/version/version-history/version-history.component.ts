@@ -50,5 +50,8 @@ export class VersionHistoryComponent implements OnInit {
       })
   }
 
+  trackByIndex(index: number, obj: any): any {
+    return index;
+  }
 
 }

@@ -64,7 +64,7 @@ div#navbarText {
 
 .menu__link{
   display: block;
-  padding: 2rem 1.5rem;
+  padding: 1rem 1.5rem;
 
   will-change: color;
   transition: color .25s ease-out;
@@ -75,9 +75,6 @@ div#navbarText {
   text-transform: uppercase;
 }
 
-.menu__link:focus{
-  outline: 2px solid #fff;
-}
 
 @media (min-width: 601px){
 

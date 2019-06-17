@@ -131,3 +131,8 @@ body {
   background-color: #ffffff  !important;
   border-color: #384360  !important;
 }
+tbody {
+  background-color: #7693a2;
+  color: #f7ba09;
+  font-weight: 600;
+}
