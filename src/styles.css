@@ -2,7 +2,16 @@
 .col {
   float: left;
 }
-
+label {
+  display: inline-block;
+  margin-bottom: .5rem;
+  color: #56668b;
+  font-weight: 600;
+  background-color: #f3b406;
+  font-size: 1.3em;
+  line-height: 1EM;
+  PADDING: 3PX;
+}
 .page-header.page-header-modern.page-header-background {
   padding: 40px 0;
   background-size: cover;
@@ -16,6 +25,10 @@
   padding: 30px 0;
   position: relative;
   text-align: left;
+  background: url(assets/img/bg/banner.jpg);
+  background-repeat: repeat-x;
+  background-size: cover;
+  background-attachment: fixed;
 }
 .page-header .breadcrumb > li {
   display: inline-block;
@@ -63,9 +76,10 @@ button.btn.btn-primary, button.btn.btn-info {
   vertical-align: bottom;
   border-bottom: 2px solid #007bff;
 }
-.table-bordered td, .table-bordered th {
-  border: 1px solid #1896bc;
+.table-bordered, .table-bordered td, .table-bordered th {
+  border: 3px solid #627a92 !important;
 }
+
 .table td, .table th {
   padding: .75rem;
   vertical-align: top;
@@ -73,7 +87,9 @@ button.btn.btn-primary, button.btn.btn-info {
 }
 th {
   text-transform: uppercase;
-  color: #1896bc;
+  color: #627a92;
+  font-size: 1.2em;
+  background-color: #f7b906cf;
 }
 .alert.alert-sucess {
   color: white;
@@ -84,5 +100,34 @@ section.page-header {
 }
 section h4 {
   font-size: 1.5rem;
-  color: #c0e4ef;
+  color: #f3b406;
+}
+
+body {
+   background: url(assets/img/bg/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.form-control {
+  color: #dc8b0a !important;
+  font-weight: 700 !important;
+  border: 2px solid #627a92 !important;
+  background-color: #f1f2e4 !important;
+}
+.submit-btn {
+  margin-top: 0em  !important;
+  color: #fff !important;
+  background-color: #90a6ae !important;
+  border-color: #627a92 !important;
+  font-size: 1.2em !important;
+  border-width: 2px !important;
+  font-weight: 600 !important;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .12), 0 1px 10px 0 rgba(0, 0, 0, .24) !important;
+}
+
+.submit-btn:hover {
+  color: #384360 !important;
+  background-color: #ffffff  !important;
+  border-color: #384360  !important;
 }
