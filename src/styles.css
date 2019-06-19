@@ -7,7 +7,8 @@ label {
   margin-bottom: .5rem;
   color: #56668b;
   font-weight: 600;
-  background-color: #f3b406;
+  background: linear-gradient(to right,#f0f2e4,#ffffff);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24);
   font-size: 1.3em;
   line-height: 1EM;
   PADDING: 3PX;
@@ -89,11 +90,17 @@ th {
   text-transform: uppercase;
   color: #627a92;
   font-size: 1.2em;
-  background-color: #f7b906cf;
+  background: linear-gradient(to right,#f6b808,#f0f0f1);
 }
 .alert.alert-sucess {
   color: white;
   background-color: green;
+}
+.alert.alert-error {
+  color: white;
+  background-color: red;
+  background: linear-gradient(to right,#ff0000,#ffffff);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24);
 }
 section.page-header {
   margin-top: 5em;
@@ -113,7 +120,7 @@ body {
   color: #dc8b0a !important;
   font-weight: 700 !important;
   border: 2px solid #627a92 !important;
-  background-color: #f1f2e4 !important;
+  background: linear-gradient(to right,#f1f3e5,#fff);
 }
 .submit-btn {
   margin-top: 0em  !important;
@@ -132,7 +139,8 @@ body {
   border-color: #384360  !important;
 }
 tbody {
-  background-color: #7693a2;
+  background: linear-gradient(to right,#6a8399,#ffffff);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24);
   color: #f7ba09;
   font-weight: 600;
 }

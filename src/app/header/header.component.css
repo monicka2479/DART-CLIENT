@@ -8,15 +8,15 @@ nav {
   display: flex;
   align-items: center;
   box-shadow: 0 0 25px 0 black;
-  background-color:#007bff;
+  background-color:#627a92;
   z-index: 10000;
 }
 
 .navbar-light .navbar-brand {
-  color: #1896bc;
+  color: #627a92;
 }
 .navbar-light .navbar-nav .nav-link {
-  color: #1997bd;
+  color: #627a92;
 }
 
 li.nav-item.menu__group {
@@ -50,7 +50,7 @@ div#navbarText {
 /* menu demo styles */
 
 .menu{
-  background-color: #e7ebe0;
+  background: linear-gradient(to right,#e0d2a5,#c5ced6);
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24);
 }
 

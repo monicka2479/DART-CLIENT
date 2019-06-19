@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { QueryRoutingModule } from './query.routing.module';
 import { QueryComponent } from './query/query.component';
-
 @NgModule({
   declarations: [QueryComponent],
   imports: [

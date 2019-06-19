@@ -11,17 +11,14 @@ export class DiaryComponent {
   actualTask: string;
   dart: any;
   darts: Dart[];
-  curDate = new Date();
+  curDate: Date = new Date();
   message: string;
   onClick(name) {
-    this.dart = new Dart(name, this.curDate, '', '', '', '', '');
-    console.log('Updated user obj' + JSON.stringify(this.dart));
-    this.dartService.getDayDart(this.dart)
+     this.dartService.getDayDart(name)
       .subscribe((data: Dart[]) => {
         this.darts = data;
         console.log(this.darts);
       });
-
   }
   trackByIndex(index: number, obj: any): any {
     return index;

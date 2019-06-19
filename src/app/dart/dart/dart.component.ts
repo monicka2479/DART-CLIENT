@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dart.component.css']
 })
 export class DartComponent implements OnInit {
-
-  constructor() { }
+  show=true;
+  constructor() {
+    console.log (this.show);
+   }
 
   ngOnInit() {
   }

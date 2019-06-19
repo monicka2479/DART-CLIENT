@@ -2,16 +2,18 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of, from } from 'rxjs';
 import { Dart } from './dart';
-
+import { map } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
 export class DartService {
-
-  insertUrl = 'http://localhost:3000/dart_create';
-  selectUrl = 'http://localhost:3000/dart_select';
-  dayDartUrl = 'http://localhost:3000/dart_selectSingle';
-  updateDartUrl = 'http://localhost:3000/dart_update';
+  curDate: Date = new Date();
+  baseUrl = 'http://localhost:3000/';
+  insertUrl = this.baseUrl + 'dart_create';
+  selectUrl = this.baseUrl + 'dart_select';
+  dayDartUrl = this.baseUrl + 'dart_selectSingle';
+  updateDartUrl = this.baseUrl + 'dart_update';
   constructor(private http: HttpClient) { }
 
   create(darts: Dart[]) {
@@ -21,22 +23,45 @@ export class DartService {
   }
 
   getDarts(name, fromDate, toDate): Observable<any> {
-    //return this.http.get(this.selectUrl);
     console.log('Name' + name);
     console.log('From date' + fromDate);
     console.log('To date' + toDate);
-    //console.log('Updated user obj' + JSON.stringify(dart));
-    return this.http.get<any>(this.selectUrl + "/" + name + "&" + fromDate + "&" + toDate);
+    return this.http.get<any>(this.selectUrl + '/' + name + '&' + fromDate +
+      '&' + toDate).pipe(
+        map(this.extractData)
+        , catchError(this.handleError));
+
   }
 
-  getDayDart(dart: Dart): Observable<any> {
-    console.log('Dart obj' + JSON.stringify(dart));
-    var url = this.dayDartUrl + '/' + dart.userName + '&' + dart.taskDate;
+  getDayDart(name): Observable<any> {
+    console.log('Dart obj' + name);
+    var url = this.dayDartUrl + '/' + name + '&' + new Date().toISOString().substring(0, 10);
     console.log('URL' + url);
     return this.http.get<any>(url);
   }
 
   updateDarts(darts: Dart[]) {
     return this.http.post<any>(this.updateDartUrl, darts);
+  }
+
+  private extractData(res: Response) {
+    let body = res;
+    return body || {};
+  }
+
+  private handleError(error: Response | any) {
+    // In a real world app, you might use a remote logging infrastructure
+    let errMsg: string;
+    if (error instanceof Response) {
+      const body = error.json() || '';
+      const err = JSON.stringify(body);
+      if (error.status === 0) {
+        errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
+      }
+
+    } else {
+      console.log('error');
+      errMsg = error.message ? error.message : error.toString();
+    } return Observable.throw(errMsg);
   }
 }

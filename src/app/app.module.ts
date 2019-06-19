@@ -11,13 +11,16 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
+
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent,
     PageNotFoundComponent,
-    HeaderComponent
+    HomeComponent, HeaderComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +35,7 @@ import { HeaderComponent } from './header/header.component';
     ReactiveFormsModule
 
   ],
-  providers: [HttpClient],
+  providers: [HttpClient, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

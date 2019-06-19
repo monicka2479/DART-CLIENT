@@ -1,7 +1,7 @@
 export class Dart{
   constructor(
   public userName: string,
-  public taskDate: Date,
+  public taskDate: string,
   public fromTime: string,
   public toTime: string,
   public plannedTask: string,

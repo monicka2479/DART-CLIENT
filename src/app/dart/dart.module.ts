@@ -8,7 +8,7 @@ import { ReportComponent } from './report/report.component';
 import { DiaryComponent } from './diary/diary.component';
 import { DartComponent } from './dart/dart.component';
 import { DartRoutingModule } from './dart.routing.module';
-
+import { DatePipe } from '@angular/common';
 @NgModule({
   declarations: [PlannerComponent, DartComponent, ReportComponent,
     DiaryComponent],
@@ -16,7 +16,7 @@ import { DartRoutingModule } from './dart.routing.module';
     BrowserModule, CommonModule, HttpClientModule, FormsModule, DartRoutingModule
   ],
   providers: [
-    HttpClient
+    HttpClient, DatePipe
   ],
 })
 

@@ -1,6 +1,5 @@
 <section
-  class="page-header page-header-modern page-header-background page-header-background-sm overlay overlay-color-primary overlay-show overlay-op-8 mb-5"
-  style="background-image: url(assets/img/page-header/page-header-elements.jpg);">
+  class="page-header page-header-modern page-header-background page-header-background-sm overlay overlay-color-primary overlay-show overlay-op-8 mb-5">
   <div class="container">
     <div class="row">
       <div class="col-md-12 align-self-center p-static order-2">
@@ -15,7 +14,7 @@
 
   <div class="row">
 
-    <form #dartForm='ngForm' (ngSubmit)='onSubmit()'>
+    <form #dartForm='ngForm'>
       <div class="row">
         <div class="form-group col col-12">
             <H1>SEARCH</H1>
@@ -70,7 +69,7 @@
         </tbody>
       </table>
       <div class="form-group">
-        <button class="btn btn-primary" type='submit'>Update Day Diary</button>
+        <button class="btn btn-primary"  (click)="onSubmit()" type='submit'>Update Day Diary</button>
       </div>
     </form>
   </div>
