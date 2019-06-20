@@ -4,16 +4,17 @@ import { Observable, of, from } from 'rxjs';
 import { Dart } from './dart';
 import { map } from 'rxjs/operators';
 import { catchError } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class DartService {
+  baseUrl = environment.baseUrl;
   curDate: Date = new Date();
-  baseUrl = 'http://localhost:3000/';
-  insertUrl = this.baseUrl + 'dart_create';
-  selectUrl = this.baseUrl + 'dart_select';
-  dayDartUrl = this.baseUrl + 'dart_selectSingle';
-  updateDartUrl = this.baseUrl + 'dart_update';
+  insertUrl = this.baseUrl + '/dart_create';
+  selectUrl = this.baseUrl + '/dart_select';
+  dayDartUrl = this.baseUrl + '/dart_selectSingle';
+  updateDartUrl = this.baseUrl + '/dart_update';
   constructor(private http: HttpClient) { }
 
   create(darts: Dart[]) {
@@ -37,7 +38,9 @@ export class DartService {
     console.log('Dart obj' + name);
     var url = this.dayDartUrl + '/' + name + '&' + new Date().toISOString().substring(0, 10);
     console.log('URL' + url);
-    return this.http.get<any>(url);
+    return this.http.get<any>(url).pipe(
+      map(this.extractData)
+      , catchError(this.handleError));
   }
 
   updateDarts(darts: Dart[]) {
@@ -56,6 +59,7 @@ export class DartService {
       const body = error.json() || '';
       const err = JSON.stringify(body);
       if (error.status === 0) {
+        console.log("NO error");
         errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
       }
 

@@ -47,15 +47,14 @@
 
 
           <div class="form-group col col-4">
-            <button class="form-control btn btn-info" type='submit' (click)="showMyContainer=!showMyContainer">Submit</button>
+            <button class="form-control btn btn-info" type='submit' >Submit</button>
           </div>
         </div>
       </div>
 
-      <table class="table table-bordered table-striped "  >
+      <table class="table table-bordered table-striped" *ngIf="showMyContainer">
         <thead>
           <tr>
-            <!-- <th scope="col">S.No</th> -->
             <th scope="col">Name</th>
             <th scope="col">Query</th>
           </tr>

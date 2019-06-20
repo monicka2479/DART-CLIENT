@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  baseUrl: 'https://pure-hollows-80125.herokuapp.com'
 };

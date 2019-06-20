@@ -13,7 +13,7 @@ export class QueryComponent implements OnInit {
   queryForm: FormGroup;
   submitted = false;
   message: string = '';
-  showMyContainer;
+  showMyContainer : boolean = false;
   public errorMessage: any = '';
   query = new Query();
   queries: Query[];
@@ -28,8 +28,8 @@ export class QueryComponent implements OnInit {
         (data: Query[]) => {
           console.log(data);
           this.queries = data;
-          console.log("inside component" + this.queries);
-
+          console.log('inside component' + this.queries);
+          this.showMyContainer = true
         }
       );
   }
@@ -42,10 +42,10 @@ export class QueryComponent implements OnInit {
 
     console.log(this.queryForm.valid);
     if (this.queryForm.invalid) {
-      console.log("form invalid");
+      console.log('form invalid');
       this.submitted = true;
     } else {
-      console.log("form valid");
+      console.log('form valid');
       console.log(this.queryForm.value.userName);
       this.query.userName = this.queryForm.value.userName;
       this.query.query = this.queryForm.value.query;
@@ -56,8 +56,8 @@ export class QueryComponent implements OnInit {
               this.message = message;
             },errMsg =>{
         this.errorMessage = errMsg;
-        this.errorMessage = "No data Found";
-        console.log("message" +this.errorMessage);
+        this.errorMessage = 'No data Found';
+        console.log('message' +this.errorMessage);
       }
           )
           console.log(this.queryForm.valid);
