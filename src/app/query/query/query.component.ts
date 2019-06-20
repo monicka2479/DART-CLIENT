@@ -13,7 +13,8 @@ export class QueryComponent implements OnInit {
   queryForm: FormGroup;
   submitted = false;
   message: string = '';
-
+  showMyContainer;
+  public errorMessage: any = '';
   query = new Query();
   queries: Query[];
   ngOnInit() {
@@ -53,7 +54,12 @@ export class QueryComponent implements OnInit {
           message => {
             console.log('message' + message),
               this.message = message;
-          })
+            },errMsg =>{
+        this.errorMessage = errMsg;
+        this.errorMessage = "No data Found";
+        console.log("message" +this.errorMessage);
+      }
+          )
           console.log(this.queryForm.valid);
     }
   }
