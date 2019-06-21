@@ -13,10 +13,12 @@ export class QueryComponent implements OnInit {
   queryForm: FormGroup;
   submitted = false;
   message: string = '';
-  showMyContainer : boolean = false;
+  showMyContainer: boolean = false;
   public errorMessage: any = '';
   query = new Query();
   queries: Query[];
+  curDate: Date = new Date();
+
   ngOnInit() {
     this.queryForm = this.formBuilder.group({
       userName: ['', Validators.required],
@@ -49,18 +51,19 @@ export class QueryComponent implements OnInit {
       console.log(this.queryForm.value.userName);
       this.query.userName = this.queryForm.value.userName;
       this.query.query = this.queryForm.value.query;
+      this.query.date = this.curDate.toISOString().substring(0, 10);
       this.queryService.saveQuery(this.query)
         .subscribe(
           message => {
             console.log('message' + message),
               this.message = message;
-            },errMsg =>{
-        this.errorMessage = errMsg;
-        this.errorMessage = 'No data Found';
-        console.log('message' +this.errorMessage);
-      }
-          )
-          console.log(this.queryForm.valid);
+          }, errMsg => {
+            this.errorMessage = errMsg;
+            this.errorMessage = 'No data Found';
+            console.log('message' + this.errorMessage);
+          }
+        )
+      console.log(this.queryForm.valid);
     }
   }
 

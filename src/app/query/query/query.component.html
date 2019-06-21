@@ -56,12 +56,14 @@
         <thead>
           <tr>
             <th scope="col">Name</th>
+            <th scope="col">Date</th>
             <th scope="col">Query</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let query of queries; let index = index; trackBy:trackByIndex;" scope="row">
             <td>{{query.userName}}</td>
+            <td>{{query.date}}</td>
             <td>{{query.query}} </td>
           </tr>
         </tbody>
